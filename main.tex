@@ -1,0 +1,62 @@
+\documentclass[a4paper]{book}
+\usepackage[
+left=2cm, right=2cm,
+paper=a4paper,%
+centering,%
+pdftex,%
+vcentering,%
+]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage[italian]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[utf8]{inputenc}
+\usepackage{imakeidx}
+\makeindex[title=domanda]
+\makeindex[name=autoreidx,title=Autori]
+\makeindex[name=categoriaidx,title=Categorie]
+\usepackage[italian]{varioref}
+
+\usepackage{quoting}
+\usepackage{tcolorbox}
+
+\newenvironment{domanda}[3]{\begin{tcolorbox}[colback=red!5,colframe=red!75!black,title=#1]
+		Autore: #2\\
+		Categoria: #3
+		\index{#1}\index[autoreidx]{#2}\index[categoriaidx]{#3}\tcblower
+	}{\end{tcolorbox}\bigskip}
+	
+	\newenvironment{risposta}[1]{\begin{tcolorbox}[colback=green!5,colframe=green!60!black,title= Risponde #1]\index[autoreidx]{#1}}{\end{tcolorbox}\bigskip}
+
+\usepackage{listings}	
+\addto\captionsitalian{%
+	\renewcommand{\lstlistingname}{Codice}}
+\addto\captionsitalian{%
+	\renewcommand{\lstlistlistingname}{Elenco dei codici}}
+	\lstset{basicstyle=\small\ttfamily,
+		keywordstyle=\color{black}\bfseries,
+		commentstyle=\color{darkgray},
+		stringstyle=\color{black},
+		showstringspaces=true}
+		
+\title{Come si fa per}
+\author{Forum Guit}
+
+\begin{document}
+\frontmatter
+\maketitle
+\tableofcontents
+\lstlistoflistings
+\mainmatter
+\input{grafica}
+\input{bibblio}
+\input{generale}
+\backmatter
+\markboth{\indexname}{\indexname}
+\addcontentsline{toc}{chapter}{\indexname}
+\printindex
+\printindex[autoreidx]
+\printindex[categoriaidx]
+\end{document}

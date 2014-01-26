@@ -1,0 +1,41 @@
+\chapter{Bibliografia}
+\label{chap:Bibliografia}
+\section{Biber}
+\label{sec:biber}
+\subsection{Biber non funziona}
+%\begin{quoting}
+\begin{domanda}{Errore nell'esecuzione di biber}{Marco87}{Biber}
+Ciao a tutti,
+qualche giorno fa sono passato dall'uso di bibtex a quello di biber. Nel preambolo ho scritto:
+%\end{quoting}
+
+\begin{lstlisting}
+\usepackage[babel,italian=guillemets]{csquotes}
+\usepackage[backend=biber,style=philosophy-modern,
+backref,ibidtracker=false]{biblatex}
+\addbibresource{bibliografia.bib}
+\end{lstlisting}
+
+Fino a ieri compilando nella sequenza pdfLaTeX, biber, pdfLaTeX, pdfLaTeX, la bibliografia e le relative 
+
+citazioni nel testo mi venivano correttamente generati. Ora invece quando lancio biber mi viene dato questo messaggio d'errore:
+data source \verb!C:\Users\Marco\AppData\Local\Temp\par-4d6172636f!
+\verb!\cache-333197c21680a7a4ad2a7fa07276748f0070f0a5\recode_data.xml! not found in . Compilation failed in require at Biber/Utils.pm line 20. BEGIN failed--compilation aborted at Biber/Utils.pm line 20. Compilation failed in require at Biber/Internals.pm line 8. BEGIN failed--compilation aborted at Biber/Internals.pm line 8. Compilation failed in require at (eval 24) line 2. ...propagated at C:/strawberry/perl/lib/base.pm line 94. BEGIN failed--compilation aborted at Biber.pm line 5. Compilation failed in require at script/biber-MSWIN line 17. BEGIN failed--compilation aborted at script/biber-MSWIN line 17.
+
+E non viene generato alcun file .bbl. Non ho idea di cosa si tratti, e tanto meno di come provare a risolverlo, visto che non capisco molto del messaggio d'errore. Qualcuno sa dirmi come posso risolvere questo problema?
+
+Grazie e buona giornata,
+Marco. 
+\end{domanda}
+\begin{risposta}{Enrico Gregorio}
+Devi cancellare la cartella 
+
+\verb!C:\Users\Marco\AppData\Local\Temp\par-4d6172636f! con tutto ciò che contiene.
+
+Capita di tanto in tanto; in questi casi, trovi la cartella da eliminare nel messaggio di errore.
+
+Ciao
+Enrico 
+
+\end{risposta}
+

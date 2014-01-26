@@ -1,0 +1,79 @@
+\chapter{TeX e LaTeX}
+\label{chap:texelatex}
+\section{Generale}
+\label{sec:Texgenerale}
+\subsection{Gestione discussione}
+
+\begin{domanda}{domanda e risposta}{claudio}{Tex e Latex}
+come fare per gestire dei blocchi come questo
+Domanda \verb!<titolo della domanda>! Autore \verb!< Nome autore >! \verb!\index{nome}!
+blocco della domanda bla bla bla bla bll
+Risposta : Autore risposta \verb!< Nome autore>\index{Nome}!
+blocco della risposta bla bla bla
+ciao
+claudio 
+\end{domanda}
+\begin{risposta}{cfiandra}
+	\begin{lstlisting}{}
+\documentclass{article}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage[italian]{babel}
+\usepackage{tcolorbox}
+	\newenvironment{domanda}[3]{
+\begin{tcolorbox}[width=\textwidth,colback=red!5,
+colframe=red!75!black,title=#1]%
+Autore: #2\\
+Categoria: #3
+\tcblower
+}{\end{tcolorbox}\bigskip}
+\newenvironment{risposta}[1]{
+\begin{tcolorbox}
+[width=\textwidth,colback=green!5,
+colframe=green!60!black,title=#1]} %
+{\end{tcolorbox}\bigskip} 
+\begin{document}
+\begin{domanda}{domanda e risposta}{claudio}{\TeX{}e\LaTeX{}}
+come fare per gestire dei blocchi come questo
+Domanda \verb!<titolo della domanda>! 
+Autore \verb!< Nome autore >! \verb!\index{nome}!
+blocco della domanda bla bla bla bla bll
+Risposta : Autore risposta 
+\verb!< Nome autore>\index{Nome}!
+blocco della risposta bla bla bla
+ciao
+claudio
+\end{domanda}
+\begin{risposta}{OldClaudio}
+Vuoi mantenere domanda e risposta unite, 
+senza salti di pagina in mezzo? O che cosa intendi 
+per ``gestire''?
+\end{risposta}
+\begin{risposta}{claudio}
+in pratica vorrei fare una raccolta di domande e risposte 
+di questo forum quindi non ho idea della domanda e della 
+risposta e della loro strutturazione impossibile da gestire?
+ciao
+claudio
+\begin{risposta}{OldClaudio}
+Impossibile non saprei, a difficile senz'altro, molto difficile; 
+pensa a un topic qualsiasi; uno fa una domanda e riceve via via 
+dieci risposte delle quali una solleva un polverone,su cui si 
+scatenano altre risposte che spesso non hanno nulla a che vedere con la prima
+domanda; oppure che generano alte domande nello stesso filone. 
+Le risposte cominciano ad intrecciarsi e non si capisce pi\'u 
+chi stia rispondendo a chi, sebbene la lettura del filone di 
+discussione sia spesso molto interessante per la variet\'a  
+dei punti di vista e per la dinamica che nasce a chi, sebbene la 
+lettura del filone di discussione sia spesso molto interessante 
+per la variet\'a dei punti di vista e per la dinamica che nasce	
+da questi dialoghi ``in piazza'', ``nel foro (romano)''
+\end{risposta}
+\begin{risposta}{claudio}
+non tutte le risposte sarebbero riprese ma solo quella che risolve il problema.
+ciao 
+\end{risposta}
+\end{document}
+\end{lstlisting}
+
+\end{risposta}
