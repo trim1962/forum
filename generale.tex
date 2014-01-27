@@ -77,3 +77,46 @@ ciao
 \end{lstlisting}
 
 \end{risposta}
+\subsection{Gestione contatori}
+\begin{domanda}{Come alterare il contatore dei capitoli?}{spino}{Tex e Latex}
+Salve a tutti. Sul mio problema non trovo niente, eppure non dovrebbe essere raro.
+Sto lavorando ad una pubblicazione multivolume. 
+Ora arrivato al volume secondo mi trovo con il problema che il libro deve cominciare con il capitolo 7 invece che 1.
+Naturalmente potrei cercare di trovare qualche trucco ma la via maestra mi pare che dovrebbe essere quella di impostare a sette il contatore subito dopo il 
+\begin{lstlisting}
+\begin{document}
+\end{lstlisting} Chi sa come farlo?
+Grazie 
+\end{domanda}
+\begin{risposta}{spino}
+Mi rispondo solo il comando  da usare è: 
+\begin{lstlisting}{}
+\setcounter{chapter}{6}
+\end{lstlisting}
+\end{risposta}
+\section{Matematica}
+\label{sec:TexMatematica}
+\begin{domanda}{sin --->sen }{marchetto}{Tex e Latex}
+Il comando
+\begin{lstlisting}
+\begin{\sin}
+\end{lstlisting}
+scrive la parola in inglese. Vorrei invece che se la lingua del documento è impostata su italiano, il risultato del comando fosse 
+\begin{lstlisting}
+sen
+\end{lstlisting}
+\end{domanda}
+\begin{risposta}{egreg9}
+Sin è abbreviazione internazionalmente riconosciuta, a differenza di “sen”. Se vuoi usare “sen”, consiglio proprio di ridefinire il comando relativo:
+\begin{lstlisting}{}
+\usepackage{amsmath}
+\let\sin\relax % evitiamo un messaggio di avviso
+\DeclareMathOperator{\sin}{sen}
+\end{lstlisting}
+In questo modo puoi usare \lstinline$\sin$ e, se ti viene l'idea di adeguarti al mondo intero, ti basta commentare quelle due righe.
+
+Ciao
+
+Enrico 
+
+\end{risposta}
